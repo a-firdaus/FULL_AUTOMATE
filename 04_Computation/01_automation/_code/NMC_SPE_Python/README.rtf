@@ -1,0 +1,42 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2821
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww16380\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs36 \cf0 \'91Paper plots\'92 files:\
+\'97\'97\'97\'97\'97\'97\'97\'97\
+> v7 : to plot data for only one material type => all the bond types will be differentiated (see \'91plot_v7_example\'92)\
+\
+> v10 : can compare two different materials, either in the same plot using shades, or in two // plots with different colours (see \'91plot_v10_example\'92). The code can also plot all materials together in the same plot and will then combine the use of colour and marker styles to differentiate data points (see \'91example_3\'92).\
+\
+!! Both scripts use data that is written inside the script (current routine: AIMD > \'91main.py\'92 > write system RBC in excel file (see \'91output_excel_example\'92) > all output excel file must be merged (copy/paste in a new one) according to a certain template (see \'91excel_example.xlsx\'92) > \'91Extracting Excel data.py\'92 > print the data read from excel > copy/paste into \'91Paper plots vXX\'92\
+ => can be improved/automated to read results from excel or from another type of storage file.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \'91RBC_Calculations\'92 folder:\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+Contain all instructions needed\
+\
+\'91Merg_*\'92 scripts:\
+\'97\'97\'97\'97\'97\'97\'97\'97\
+When your AIMD simulations stops because you ran out of time and that you re-start it, you end up with several trajectory and output files (XDATCAR and OUTCAR). To run the analysis of the simulations you will need to merge them into a single file \
+> Merge_XDATCAR.py & Merge_OUTCAR.py\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \'91Write Bader Charges\'92 file:\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+Instruction details in the first comment in the script\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \'91Draw Coord Shell\'92:\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 Can definitely be improved! It reads information from an excel file draw both distance of the first coordination shell (\'c5) and the bader charge associated (see \'91example_excel_distance_bader\'92)\
+> Bader charges are already in the file (see previous section)\
+> Distances are deduced from RDF\
+\
+\
+}
