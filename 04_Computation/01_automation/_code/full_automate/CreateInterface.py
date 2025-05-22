@@ -60,5 +60,12 @@ def get_principal_axis(mol: Molecule):
     coords = mol.cart_coords - mol.center_of_mass
     cov = np.cov(coords.T)
     eigvals, eigvecs = np.linalg.eigh(cov)
+
+    # # Step 2: Get molecule's longest axis (in Cartesian)
+    # molecule_coords = np.array(molecule.cart_coords)
+    # molecule_extent = np.ptp(molecule_coords, axis=0)
+    # molecule_axis = molecule_extent / np.linalg.norm(molecule_extent)
+    # return molecule_axis
+
     # Return the eigenvector with the largest eigenvalue (longest axis)
     return eigvecs[:, np.argmax(eigvals)]
