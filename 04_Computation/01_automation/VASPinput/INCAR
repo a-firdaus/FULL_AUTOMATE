@@ -1,0 +1,43 @@
+# Basic setup:
+ SYSTEM = NMC 
+ ISPIN = 1
+ LSORBIT = .FALSE.
+
+# Accuracy controls:
+ PREC = Normal
+ ENCUT = 550 #eV
+ NWRITE=2
+
+# Electronic loop controls:
+ ALGO = Fast
+ EDIFF = 0.00001 #1E-5
+ NELMIN = 8
+ NELM = 60
+ TIME = 0.400000
+ ISYM = 0 #Ignore symmetry
+ LREAL = Auto     # real space projection, faster
+ ISMEAR = 0        # Gaussian smearing
+ SIGMA = 0.100000   # eV
+ # NBANDS - using default
+
+# Relaxation control:
+ IBRION = 0    # Do molecular dynamics simulation
+ NSW = 15000 # Number of time steps (to achieve 15 ps with a POTIM timestep of 1fs)
+ POTIM = 1.000000 #Timestep of whole MD in femtoseconds (replaced H-1 by H-3)
+ TEBEG = 400.000  # Kelvin
+ TEEND = 400.000  # Kelvin
+ SMASS = -1 #to use NBLOCK to rescale the temperature every n steps
+ NBLOCK = 4 #rescale temperature every 4 steps
+
+
+# Custom options
+IVDW=11 #DFT-D3 method for VDW interactions
+
+# Performance options
+LPLANE = .TRUE.
+LSCALU = .FALSE.
+#NPAR = 1
+NCORE= 8 
+#KPAR = 1 
+
+

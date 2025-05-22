@@ -1,0 +1,45 @@
+#!/bin/bash
+#Vasp 4 jan from sam
+#For use on VUB cluster
+
+#The name of the job will be the directory in which you calculate
+#Walltime, nodes and ppn are set by first,second and third argument respectively
+#There is an optional fourth argument for memory (=node selection)
+
+dir=`pwd`
+dir2=`echo "${PWD##*/}"`
+walltime=$[$1-1]':59:00'
+total_procs=$(($2 * $3))
+
+MEM=$4  
+if [ "$MEM" = "" ]; then
+    MEM=115
+fi
+    
+cat > submit.sh << !
+#!/bin/bash
+
+#PBS -N $dir2
+#PBS -l walltime=$walltime
+#PBS -l mem=${MEM}gb
+#PBS -l nodes=$2:ppn=$3:intel
+
+ulimit -s unlimited
+
+module load VASP/6.3.2-gomkl-2022a 
+module list
+
+cd $dir
+
+free -m
+date
+touch CHGCAR WAVECAR 
+
+rm $dir/tempout
+
+mpirun -np $total_procs vasp_std > $dir/tempout 
+free -m
+date
+
+exit 0
+!

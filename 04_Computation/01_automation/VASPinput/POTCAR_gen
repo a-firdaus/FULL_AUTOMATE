@@ -1,0 +1,11 @@
+#!/bin/bash
+for i in "$@" ; do
+  echo $i
+  filename="/scratch/brussel/107/vsc10729/AIMD/VASP_potentials/PBE/potpaw_PBE.54/$i/POTCAR"
+  if [ -f $filename ]; then
+    cat $filename >> POTCAR
+  else
+    echo "file $filename not found, please check you POTCAR database path"
+  exit 1
+  fi
+done
